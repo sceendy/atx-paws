@@ -1,7 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto')
+@import url('https://fonts.googleapis.com/css?family=Bungee|Roboto|Material+Icons')
 
+/* VARIABLES */
 :root
-  --font: 'Roboto', sans-serif
+  --heading-font: 'Bungee', sans-serif
+  --body-font: 'Roboto', sans-serif
+  --red: #E8534F
+  --teal: #64BEC8
+  --blue: #1C3435
 
 html, body
-  font-family: var(--font)
+  background-color: #ECECEC
+  font-family: var(--body-font)
+  margin: 0
+
+h1
+  font-family: var(--heading-font)
+
+h2
+  color: var(--red)
+
+.container
+  width: 90vw
+  margin: 0 auto

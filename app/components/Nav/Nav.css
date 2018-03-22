@@ -1,0 +1,8 @@
+.u--background-blue
+  background-color: #1C3435
+
+.main__header
+  color: white
+  display: flex
+  align-items: center
+  justify-content: space-between

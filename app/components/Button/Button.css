@@ -1,25 +1,47 @@
-.button {
-	padding: .5em 1.5em;
-	color: #666;
-	background-color: #fff;
-	border: 1px solid currentColor;
-	border-radius: .3em;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-}
+.btn
+	border: 0
+	border-radius: 25px
+	display: flex
+	align-items: center
+	padding: 10px 25px
+	font-size: 1.2rem
 
-.button[disabled] {
-	opacity: 0.35;
-	cursor: default;
-}
+.btn--primary
+	background-color: #E8534F
+	color: white
 
-.button + .button {
-	margin-left: 8px;
-}
+.btn--secondary
+	border: solid 3px
+	color: #1C3435
 
-.checks {
-	background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%), linear-gradient(-45deg, #f5f5f5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f5f5f5 75%), linear-gradient(-45deg, transparent 75%, #f5f5f5 75%);
-	background-size: 16px 16px;
-	background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
-}
+.btn-group
+	display: flex
+
+.btn-group__item
+	border-radius: 0
+	&:first-child
+		border-top-left-radius: 25px
+		border-bottom-left-radius: 25px
+	&:last-child
+		border-top-right-radius: 25px
+		border-bottom-right-radius: 25px
+	&:hover
+		background-color: #1C3435
+		border-color: #1C3435
+		color: white
+
+.select__sec
+	display: inline-block
+	width: 100%
+	height: calc(2.25rem + 2px)
+	padding: .375rem 1.75rem .375rem .75rem
+	line-height: 1.5
+	color: #495057
+	vertical-align: middle
+	background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center
+	background-size: 8px 10px
+	border: 1px solid #ced4da
+	border-radius: .25rem
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
