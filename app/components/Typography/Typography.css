@@ -1,24 +1,40 @@
-@import url('https://fonts.googleapis.com/css?family=Bungee|Roboto|Material+Icons')
+@import url('https://fonts.googleapis.com/css?family=Bungee|Roboto|Material+Icons');
 
 /* VARIABLES */
-:root
-  --heading-font: 'Bungee', sans-serif
-  --body-font: 'Roboto', sans-serif
-  --red: #E8534F
-  --teal: #64BEC8
-  --blue: #1C3435
+:root {
+  --heading-font: 'Bungee', sans-serif;
+  --body-font: 'Roboto', sans-serif;
+  --red: #E8534F;
+  --teal: #64BEC8;
+  --blue: #1C3435;
+}
 
-html, body
-  background-color: #ECECEC
-  font-family: var(--body-font)
-  margin: 0
+html, body {
+  background-color: #ECECEC;
+  font-family: var(--body-font);
+  margin: 0;
+}
 
-h1
-  font-family: var(--heading-font)
+h1 {
+  font-family: var(--heading-font);
+  margin: 0;
+}
 
-h2
-  color: var(--red)
+h2 {
+  color: var(--red);
+  display: flex;
+  align-items: center;
+}
 
-.container
-  width: 90vw
-  margin: 0 auto
+h3 { margin-top: 0; }
+
+.u--text-sm { font-size: 0.8rem; }
+
+.u--teal { color: var(--teal); }
+
+.container {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.material-icons { margin-right: 5px; }

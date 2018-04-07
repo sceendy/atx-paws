@@ -1,47 +1,71 @@
-.btn
-	border: 0
-	border-radius: 25px
-	display: flex
-	align-items: center
-	padding: 10px 25px
-	font-size: 1.2rem
+@import '../Typography/Typography.css';
 
-.btn--primary
-	background-color: #E8534F
-	color: white
+.btn {
+	border: 0;
+	border-radius: 25px;
+	display: flex;
+	align-items: center;
+	padding: 10px 25px;
+	font-size: 1rem;
+	font-weight: 600;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
 
-.btn--secondary
-	border: solid 3px
-	color: #1C3435
+.btn--primary {
+	background-color: #E8534F;
+	color: white;
+}
 
-.btn-group
-	display: flex
+.btn--secondary {
+	border: solid 3px;
+	color: #1C3435;
+}
 
-.btn-group__item
-	border-radius: 0
-	&:first-child
-		border-top-left-radius: 25px
-		border-bottom-left-radius: 25px
-	&:last-child
-		border-top-right-radius: 25px
-		border-bottom-right-radius: 25px
-	&:hover
-		background-color: #1C3435
-		border-color: #1C3435
-		color: white
+.btn-group {
+	display: flex;
+}
 
-.select__sec
-	display: inline-block
-	width: 100%
-	height: calc(2.25rem + 2px)
-	padding: .375rem 1.75rem .375rem .75rem
-	line-height: 1.5
-	color: #495057
-	vertical-align: middle
-	background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center
-	background-size: 8px 10px
-	border: 1px solid #ced4da
-	border-radius: .25rem
-	-webkit-appearance: none
-	-moz-appearance: none
-	appearance: none
+.btn-group__item {
+	border-radius: 0;
+	&:first-child {
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+		border-right-width: 0;
+	}
+	&:last-child {
+		border-top-right-radius: 25px;
+		border-bottom-right-radius: 25px;
+		border-left-width: 0;
+	}
+	&:hover {
+		background-color: #1C3435;
+		border-color: #1C3435;
+		color: white;
+	}
+}
+
+.select__container--custom {
+	position: relative;
+	width: auto;
+	&::after {
+		font-family: 'Material Icons';
+		font-size: 2rem;
+		content: '\E5C5';
+		position: absolute;
+		left: 145px;
+		top: 11px;
+		z-index: 0;
+	}
+}
+
+.select--custom {
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 25px;
+	padding-left: 15px;
+	padding-right: 45px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}

@@ -1,8 +1,18 @@
-.u--background-blue
-  background-color: #1C3435
+.u--background-blue {
+  background-color: #1C3435;
+}
 
-.main__header
-  color: white
-  display: flex
-  align-items: center
-  justify-content: space-between
+.main__header {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+@media screen and (min-width: 64rem) {
+  .main__header {
+    align-items: center;
+    flex-direction: row;
+  }
+}
