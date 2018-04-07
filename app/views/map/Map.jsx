@@ -1,15 +1,24 @@
 import React from 'react';
-import * as customMapStyles from './customMapStyles.json';
+import customMapStyles from './customMapStyles.json';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
-export const MyMapComponent = withScriptjs(withGoogleMap((props) =>
-<GoogleMap
-  defaultZoom={9}
-  defaultCenter={{ lat: 30.307182, lng: -97.755996 }}
-  defaultOptions={{ styles: customMapStyles }}
->
-  {<Marker position={{ lat: 30.307182, lng: -97.755996 }} />}
-</GoogleMap>
-))
+export const Map = withScriptjs(withGoogleMap((props) =>
+  <GoogleMap
+    defaultZoom={10}
+    defaultCenter={{ lat: 30.307182, lng: -97.755996 }}
+    defaultOptions={{ styles: customMapStyles }}
+  >
+    { props.markerData.map((marker, i) => {
+      return (
+        <Marker 
+          position={{ lat: marker.latitude, lng: marker.longitude }} 
+          key={i}
+          icon={{
+            url: marker.typeUrl
+          }}
+        />
+    )})}
+  </GoogleMap>
+));
 
-export default MyMapComponent;
+export default Map;

@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 
-import '../components/Card';
 import '../components/Badge';
-import '../components/Button';
-import '../components/Form';
 import '../components/Layout';
-import '../components/Nav';
 import '../components/Typography';
 
-import MyMapComponent from './map/Map.jsx';
+import Map from './map/Map.jsx';
+
+import Header from './Header';
 import FilterForm from './pets/Filter';
 import PetCard from './pets/Card';
 
 import {
-  fetchPets
+  fetchPets,
+  fetchPet
 } from '../actions/pets';
 
 export default class App extends Component {
@@ -25,7 +24,7 @@ export default class App extends Component {
   }
 
   getNewPets() {
-    return fetch('https://data.austintexas.gov/resource/hye6-gvq2.json', {
+    return fetch('https://data.austintexas.gov/resource/hye6-gvq2.json?$limit=3', {
       method: 'GET'
     }).then(data => data.json());
   }
@@ -36,6 +35,17 @@ export default class App extends Component {
     }).then(data => data.json());
   }
 
+  plotMarkers() {
+    return this.state.pets.map((pet) => {
+      return ({
+        id: pet.animal_id,
+        latitude: Number(pet.location.latitude),
+        longitude: Number(pet.location.longitude),
+        typeUrl: pet.type === 'Dog' ? 'https://sceendy.com/atx-paw-finder/assets/dog-color.svg' : 'https://sceendy.com/atx-paw-finder/assets/cat-color.svg'
+      });
+    });
+  }
+
   componentWillMount(){      
     this.getNewPets().then(pets => this.setState({pets}));
   }
@@ -43,15 +53,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <div className="u--background-blue">
-          <div className="container">
-            <div className="main__header">
-              <h1>ATX Paws</h1>
-              <em className="u--text-sm">This map shows all stray cats and dogs that are currently listed in AAC's database for no longer than a week. </em>
-            </div>
-          </div>
-        </div>
-        
+        <Header />
         <div className="container">
           <FilterForm />
           <div className="main__layout">
@@ -67,13 +69,14 @@ export default class App extends Component {
               }
             </div>
             <div className="map__container">
-            <MyMapComponent
-              isMarkerShown
-              googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-              loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `100%` }} />}
-              mapElement={<div style={{ height: `100%` }} />}
-            />
+              <Map
+                isMarkerShown
+                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `100%` }} />}
+                mapElement={<div style={{ height: `450px` }} />}
+                markerData={this.plotMarkers()}
+              />
             </div>
           </div>
         </div>

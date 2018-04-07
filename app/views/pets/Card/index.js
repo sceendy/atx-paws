@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import '../../../components/Typography';
+import '../../../components/Card';
+
 export default class PetCard extends Component {
   constructor(props) {
     super(props);

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import '../../../components/Button';
+import '../../../components/Form';
+
 export default class FilterForm extends Component {
   render() {
     return (
