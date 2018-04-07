@@ -1,70 +1,53 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import '../components/Badge';
 import '../components/Layout';
 import '../components/Typography';
 
 import Map from './map/Map.jsx';
-
 import Header from './Header';
 import FilterForm from './pets/Filter';
 import PetCard from './pets/Card';
 
-import {
-  fetchPets,
-  fetchPet
-} from '../actions/pets';
+import { FetchPets, SetFilter } from '../actions/pets';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pets: []
-    }
-  }
-
-  getNewPets() {
-    return fetch('https://data.austintexas.gov/resource/hye6-gvq2.json?$limit=3', {
-      method: 'GET'
-    }).then(data => data.json());
-  }
-
-  getPet(id) {
-    return fetch('https://data.austintexas.gov/resource/hye6-gvq2.json', {
-      method: 'GET'
-    }).then(data => data.json());
-  }
-
+class App extends Component {
   plotMarkers() {
-    return this.state.pets.map((pet) => {
+    return this.props.pets.map((pet) => {
+      let type = pet.type.toLowerCase();
       return ({
         id: pet.animal_id,
         latitude: Number(pet.location.latitude),
         longitude: Number(pet.location.longitude),
-        typeUrl: pet.type === 'Dog' ? 'https://sceendy.com/atx-paw-finder/assets/dog-color.svg' : 'https://sceendy.com/atx-paw-finder/assets/cat-color.svg'
+        typeUrl: `https://sceendy.com/atx-paw-finder/assets/${type}-color.svg`
       });
     });
   }
 
-  componentWillMount(){      
-    this.getNewPets().then(pets => this.setState({pets}));
+  componentDidMount(){
+    this.props.dispatch(FetchPets());
   }
 
   render() {
+    const emptyPetsList = this.props.pets.length === 0;
+
     return (
       <div>
         <Header />
         <div className="container">
-          <FilterForm />
+          <FilterForm type="both" sex="all"/>
           <div className="main__layout">
             <div className="card__list">
-              <h3>{this.state.pets.length} results for all pets</h3>
-              { this.state.pets.map(pet => {
+              <h3>{this.props.pets.length} results for all pets</h3>
+
+              { emptyPetsList &&
+                <div>no pets foound</div>
+              }
+
+              { this.props.pets.map(pet => {
                 return (
-                  <PetCard
-                    key={pet.animal_id}
-                    {...pet}
-                    />
+                  <PetCard {...pet} key={pet.animal_id} />
                 )})
               }
             </div>
@@ -74,12 +57,19 @@ export default class App extends Component {
                 googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `100%` }} />}
-                mapElement={<div style={{ height: `450px` }} />}
+                mapElement={<div style={{ height: `80vh` }} />}
                 markerData={this.plotMarkers()}
               />
             </div>
           </div>
         </div>
-      </div>);
+      </div>
+    );
   }
-}
+};
+
+const mapState = state => ({
+  pets: state.pets
+});
+
+export default connect(mapState)(App);
