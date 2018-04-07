@@ -15,12 +15,12 @@ const receivePets = (json) => ({
   pets: json
 });
 
-export const SetFilter = () => ({
+export const SetFilter = (filter) => ({
   type: SET_FILTER,
+  filter
 });
 
 export const FetchPets = () => {
-  //console.log(fetch(API_URL).then(response => response.json()).then(json => dispatch(receivePets(json))));
   return dispatch => {
     return (
       fetch(API_URL)

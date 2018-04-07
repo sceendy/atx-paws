@@ -13,6 +13,11 @@ import PetCard from './pets/Card';
 import { FetchPets, SetFilter } from '../actions/pets';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.handleFilterForm = this.handleFilterForm.bind(this);
+  }
+
   plotMarkers() {
     return this.props.pets.map((pet) => {
       let type = pet.type.toLowerCase();
@@ -29,20 +34,29 @@ class App extends Component {
     this.props.dispatch(FetchPets());
   }
 
+  handleFilterForm(filter) {
+    this.props.dispatch(SetFilter(filter));
+  }
+
   render() {
+    console.log(this.props);
     const emptyPetsList = this.props.pets.length === 0;
 
     return (
       <div>
         <Header />
         <div className="container">
-          <FilterForm type="both" sex="all"/>
+          <FilterForm 
+            type="Both"
+            sex="all"
+            onChange={(filter) => this.handleFilterForm(filter)}
+          />
           <div className="main__layout">
             <div className="card__list">
               <h3>{this.props.pets.length} results for all pets</h3>
 
               { emptyPetsList &&
-                <div>no pets foound</div>
+                <div>no pets found</div>
               }
 
               { this.props.pets.map(pet => {
@@ -69,7 +83,7 @@ class App extends Component {
 };
 
 const mapState = state => ({
-  pets: state.pets
+  pets: state,
 });
 
 export default connect(mapState)(App);
