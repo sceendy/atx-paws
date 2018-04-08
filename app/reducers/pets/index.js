@@ -5,7 +5,10 @@ const pets = (state = {initial: [], filteredPets: []}, action) => {
     case 'FILTER_PETS':
       return {
         ...state,
-        filteredPets: state.initial.filter(p => p.sex == action.filterSelections.sex && p.type == action.filterSelections.type),
+        filteredPets: state.initial.filter(p => 
+          action.petType && action.sex ? p.type === action.petType && p.sex === action.sex :
+            action.petType ? p.type === action.petType : action.sex ? p.sex === action.sex : true
+        )
       }
     case 'RECEIVE_PETS':
       return {

@@ -8,7 +8,7 @@ class FilterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: props.type,
+      petType: props.petType,
       sex: props.sex,
       submitForm: props.submitForm
     };
@@ -20,31 +20,29 @@ class FilterForm extends Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    this.props.onChange({
-      type: this.state.type, 
-      sex: this.state.sex
-    });
+    let selectedFilters = {};
+    Object.keys(this.state)
+      .filter(k => this.state[k] !== undefined && this.state[k] !== 'Both' && this.state[k] !== 'all')
+      .forEach(l => (selectedFilters[l] = this.state[l]));
+
+    this.props.onChange(selectedFilters);
   }
 
   updateSex(e) {
-    this.setState({
-      sex: e.target.value
-    });
+    this.setState({sex: e.target.value});
   }
 
   updateType(e) {
-    let prevButtonSelected = document.getElementsByName(this.state.type)[0];
+    let prevButtonSelected = document.getElementsByName(this.state.petType)[0];
     if (prevButtonSelected) prevButtonSelected.classList.remove('btn-group__item--selected');
-  
-    this.setState({
-      type: e.target.name
-    });
+    
+    this.setState({petType: e.target.name});
     
     e.target.classList.add('btn-group__item--selected');
   }
 
   componentDidMount() {
-    let initialType = document.getElementsByName(this.state.type)[0];
+    let initialType = document.getElementsByName(this.state.petType)[0];
     initialType.classList.add('btn-group__item--selected');
   }
 
@@ -94,7 +92,7 @@ class FilterForm extends Component {
 
 FilterForm.propTypes = {
   sex: PropTypes.string,
-  type: PropTypes.string,
+  petType: PropTypes.string,
   onChange: PropTypes.func,
 };
 

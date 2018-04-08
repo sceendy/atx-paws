@@ -18,12 +18,12 @@ const receivePets = (json) => ({
 
 export const SetFilter = (filters) => ({
   type: SET_FILTER,
-  filters
+  ...filters
 });
 
 export const FilterPets = (filterSelections) => ({
   type: FILTER_PETS,
-  filterSelections
+  ...filterSelections
 });
 
 export const FetchPets = () => {

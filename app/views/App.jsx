@@ -21,7 +21,7 @@ class App extends Component {
           id: pet.animal_id,
           latitude: Number(pet.location.latitude),
           longitude: Number(pet.location.longitude),
-          typeUrl: `https://sceendy.com/atx-paw-finder/assets/${type}-color.svg`
+          typeUrl: `https://sceendy.com/atx-paw-finder/assets/${type}-shadow.svg`
         });
       });
     }
@@ -43,9 +43,9 @@ class App extends Component {
         <Header />
         <div className="container">
           <FilterForm 
-            type={this.props.filter.type}
+            petType={this.props.filter.petType}
             sex={this.props.filter.sex}
-            onChange={(filter) => this.handleFilterForm(filter)}
+            onChange={filter => this.handleFilterForm(filter)}
           />
           <div className="main__layout">
             <div className="card__list">
