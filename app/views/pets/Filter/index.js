@@ -33,15 +33,19 @@ class FilterForm extends Component {
   }
 
   updateType(e) {
-    let prevType = this.state.type;
-    let prevButtonSelected = document.getElementsByName(prevType)[0];
-    prevButtonSelected.classList.remove('btn-group__item--selected');
+    let prevButtonSelected = document.getElementsByName(this.state.type)[0];
+    if (prevButtonSelected) prevButtonSelected.classList.remove('btn-group__item--selected');
   
     this.setState({
       type: e.target.name
     });
     
     e.target.classList.add('btn-group__item--selected');
+  }
+
+  componentDidMount() {
+    let initialType = document.getElementsByName(this.state.type)[0];
+    initialType.classList.add('btn-group__item--selected');
   }
 
   render() {
@@ -60,7 +64,7 @@ class FilterForm extends Component {
           >
             <button type="button" className="btn btn--secondary btn-group__item" name="Dog">dog</button>
             <button type="button" className="btn btn--secondary btn-group__item" name="Cat">cat</button>
-            <button type="button" className="btn btn--secondary btn-group__item btn-group__item--selected" name="Both">both</button>
+            <button type="button" className="btn btn--secondary btn-group__item" name="Both">both</button>
           </div>
           <div className="select__container--custom">
             <select 
@@ -89,8 +93,8 @@ class FilterForm extends Component {
 };
 
 FilterForm.propTypes = {
-  sex: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  sex: PropTypes.string,
+  type: PropTypes.string,
   onChange: PropTypes.func,
 };
 

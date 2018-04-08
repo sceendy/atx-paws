@@ -10,24 +10,21 @@ import Header from './Header';
 import FilterForm from './pets/Filter';
 import PetCard from './pets/Card';
 
-import { FetchPets, SetFilter } from '../actions/pets';
+import { FetchPets, FilterPets, SetFilter } from '../actions/pets';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.handleFilterForm = this.handleFilterForm.bind(this);
-  }
-
   plotMarkers() {
-    return this.props.pets.map((pet) => {
-      let type = pet.type.toLowerCase();
-      return ({
-        id: pet.animal_id,
-        latitude: Number(pet.location.latitude),
-        longitude: Number(pet.location.longitude),
-        typeUrl: `https://sceendy.com/atx-paw-finder/assets/${type}-color.svg`
+    if (this.props.filteredPets) {
+      return this.props.filteredPets.map((pet) => {
+        let type = pet.type.toLowerCase();
+        return ({
+          id: pet.animal_id,
+          latitude: Number(pet.location.latitude),
+          longitude: Number(pet.location.longitude),
+          typeUrl: `https://sceendy.com/atx-paw-finder/assets/${type}-color.svg`
+        });
       });
-    });
+    }
   }
 
   componentDidMount(){
@@ -36,30 +33,26 @@ class App extends Component {
 
   handleFilterForm(filter) {
     this.props.dispatch(SetFilter(filter));
+    this.props.dispatch(FilterPets(filter));
   }
 
   render() {
-    console.log(this.props);
-    const emptyPetsList = this.props.pets.length === 0;
-
+    const petsListed = this.props.filteredPets ? this.props.filteredPets.length : 0;
     return (
       <div>
         <Header />
         <div className="container">
           <FilterForm 
-            type="Both"
-            sex="all"
+            type={this.props.filter.type}
+            sex={this.props.filter.sex}
             onChange={(filter) => this.handleFilterForm(filter)}
           />
           <div className="main__layout">
             <div className="card__list">
-              <h3>{this.props.pets.length} results for all pets</h3>
+              <h3>{petsListed} results for all pets</h3>
 
-              { emptyPetsList &&
-                <div>no pets found</div>
-              }
-
-              { this.props.pets.map(pet => {
+              { this.props.filteredPets &&
+                this.props.filteredPets.map(pet => {
                 return (
                   <PetCard {...pet} key={pet.animal_id} />
                 )})
@@ -83,7 +76,9 @@ class App extends Component {
 };
 
 const mapState = state => ({
-  pets: state,
+  pets: state.pets.initial,
+  filteredPets: state.pets.filteredPets,
+  filter: state.filter
 });
 
 export default connect(mapState)(App);
