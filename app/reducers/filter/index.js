@@ -1,11 +1,18 @@
 import { SetFilter } from '../../actions/pets';
 
-const filter = (state = { sex: 'all', petType: 'Both'}, action) => {
+const initialFilter = {
+  sex: 'all',
+  petType: 'all',
+  age: 'all'
+};
+
+const filter = (state = initialFilter, action) => {
   switch (action.type) {
     case 'SET_FILTER':
       return {
         sex: action.sex,
-        petType: action.petType
+        petType: action.petType,
+        age: action.age
       };
     default:
       return state;

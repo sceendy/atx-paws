@@ -4,24 +4,25 @@
 :root {
   --heading-font: 'Bungee', sans-serif;
   --body-font: 'Roboto', sans-serif;
-  --red: #E8534F;
-  --teal: #64BEC8;
-  --blue: #1C3435;
+  --primary: #9281FA;
+  --secondary: #FC1474;
+  --blue: #2F3B52;
+  --light-bg: #F6F6F8;
 }
 
 html, body {
-  background-color: #ECECEC;
+  background-color: var(--light-bg);
   font-family: var(--body-font);
   margin: 0;
 }
 
 h1 {
   font-family: var(--heading-font);
+  color: var(--blue);
   margin: 0;
 }
 
 h2 {
-  color: var(--red);
   display: flex;
   align-items: center;
 }
@@ -29,8 +30,6 @@ h2 {
 h3 { margin-top: 0; }
 
 .u--text-sm { font-size: 0.8rem; }
-
-.u--teal { color: var(--teal); }
 
 .container {
   width: 90vw;

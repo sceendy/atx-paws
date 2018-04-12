@@ -10,16 +10,18 @@
 	font-weight: 600;
 	margin-top: 4px;
 	margin-bottom: 4px;
+	width: 100%;
 }
 
 .btn--primary {
-	background-color: #E8534F;
+	background: var(--primary);
+	background: linear-gradient(270deg, rgba(91,126,251,1) 0%, rgba(138,97,250,1) 100%);
 	color: white;
 }
 
 .btn--secondary {
 	border: solid 3px;
-	color: #1C3435;
+	color: var(--primary);
 }
 
 .btn-group {
@@ -27,11 +29,10 @@
 }
 
 .btn-group__item {
+	border-color: rgba(138,97,250,1);
 	border-radius: 0;
 	&.btn-group__item--selected {
-		background-color: #1C3435;
-		border-color: #1C3435;
-		color: white;
+		background: #ddddff;
 	}
 	&:first-child {
 		border-top-left-radius: 25px;
@@ -50,11 +51,12 @@
 	position: relative;
 	width: auto;
 	&::after {
+		color: var(--secondary);
 		font-family: 'Material Icons';
 		font-size: 2rem;
 		content: '\E5C5';
 		position: absolute;
-		left: 145px;
+		right: 5px;
 		top: 11px;
 		z-index: 0;
 	}
@@ -69,4 +71,10 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+}
+
+@media screen and (min-width: 30rem) {
+	.btn {
+		width: auto;
+	}
 }

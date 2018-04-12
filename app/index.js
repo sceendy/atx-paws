@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import petFinderApp from './reducers';
 import App from './views/App.jsx';
 
@@ -18,7 +19,9 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Route path="/:filter?" component={App} />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
