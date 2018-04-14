@@ -19,9 +19,10 @@
 .card__image {
   display: flex;
   align-items: center;
-  height: 200px;
+  justify-content: center;
+  width: 200px;
   & > img {
-    max-height: 100%;
+    max-width: 100%;
   }
 }
 

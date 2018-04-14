@@ -9,6 +9,7 @@ import '../components/Typography';
 
 import Header from './Header';
 import PetList from './pets/List';
+import Map from './map/Maps';
 import FilterForm from './pets/Filter';
 
 import { FetchPets, FilterPets, SetFilter } from '../actions/pets';
@@ -49,6 +50,7 @@ class App extends Component {
               filteredPets={this.props.filteredPets}
               filter={this.props.filter}
             />
+            <Map />
           </div>
         </div>
       </div>

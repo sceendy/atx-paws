@@ -64,9 +64,11 @@ class FilterForm extends Component {
               value={this.state.sex} 
               onChange={this.updateSex}
             >
-              <option value="m">Male</option>
-              <option value="f">Female</option>
-              <option value="all">Males/Females</option>
+              <option value="Intact Male">Intact Male</option>
+              <option value="Intact Female">Intact Female</option>
+              <option value="Neutered Male">Neutered Male</option>
+              <option value="Spayed Female">Spayed Female</option>
+              <option value="all">All Males/Females</option>
             </select>
           </div>
           <div className="select__container--custom">

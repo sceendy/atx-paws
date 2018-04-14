@@ -5,7 +5,7 @@ export const RECEIVE_PETS = 'RECEIVE_PETS';
 export const SET_FILTER = 'SET_FILTER';
 export const FILTER_PETS = 'FILTER_PETS';
 
-const API_URL = 'https://ra-api.adoptapet.com/v1/shelters/70072/pets/?start=1&limit=20';
+const API_URL = 'https://data.austintexas.gov/resource/hye6-gvq2.json?';
 
 const requestPets = () => ({
   type: REQUEST_PETS,
@@ -13,7 +13,7 @@ const requestPets = () => ({
 
 const receivePets = (json) => ({
   type: RECEIVE_PETS,
-  pets: json.body
+  pets: json
 });
 
 export const SetFilter = (filters) => ({
@@ -29,7 +29,7 @@ export const FilterPets = (filterSelections) => ({
 export const FetchPets = () => {
   return dispatch => {
     return (
-      fetch(`${API_URL}`) //?$$app_token=GEItmySVwSiOQyvvgxlplPL45
+      fetch(`${API_URL}$$app_token=GEItmySVwSiOQyvvgxlplPL45`)
       .then(response => response.json())
       .then(json => dispatch(receivePets(json)))
     );

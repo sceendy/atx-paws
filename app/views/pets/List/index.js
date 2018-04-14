@@ -3,14 +3,20 @@ import PetCard from '../Card';
 
 class PetList extends Component {
   render() {
-    const filter = 
-      this.props.filter.sex !== 'all' 
-      && this.props.filter.petType !== 'all' 
-      && this.props.filter.age !== 'all';
+    const filters = this.props.filter;
+    const filterText = (() => {
+      const values = Object.values(this.props.filter)
+        .filter(v => v !== 'all' && typeof v !== 'undefined' && v.length !== 0)
+        .map(v => v.replace(/\+/g, ' '));
 
-    const filterText = filter ? 
-      Object.values(this.props.filter).map(filter => filter).join(' ') + 's' : 
-      ' pets';
+      if (values.length >= 1) {
+        return values
+          .reverse()
+          .join(', ');
+      } else {
+        return 'all';
+      }
+    })();
 
     return (
       <div>
@@ -21,7 +27,7 @@ class PetList extends Component {
         }
         <div className="card__list">
           { this.props.filteredPets.map(pet =>
-            <PetCard {...pet} key={pet.petId} />
+            <PetCard {...pet} key={pet.animal_id} />
           )}
         </div>
       </div>
