@@ -3,7 +3,6 @@ import { SetFilter } from '../../actions/pets';
 const initialFilter = {
   sex: 'all',
   petType: 'all',
-  age: 'all'
 };
 
 const filter = (state = initialFilter, action) => {
@@ -12,7 +11,6 @@ const filter = (state = initialFilter, action) => {
       return {
         sex: action.sex,
         petType: action.petType,
-        age: action.age
       };
     default:
       return state;

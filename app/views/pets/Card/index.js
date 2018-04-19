@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazyload';
 
 import '../../../components/Typography';
 import '../../../components/Card';
@@ -15,11 +16,12 @@ class PetCard extends Component {
           <img src={`http://petharbor.com/get_image.asp?RES=Detail&ID=${this.props.animal_id}&LOCATION=ASTN`} />
         </div>
         <div className="card__content">
-          <div className="card__title">{this.props.name}</div>
+          <div className="card__title">{this.props.looks_like}</div>
           <ul className="badge-list">
+            <li className="badge">{this.props.type}</li>
             <li className="badge">{this.props.sex}</li>
             <li className="badge">{this.props.age}</li>
-            <li className="badge">{this.props.type}</li>
+            <li className="badge">{this.props.color}</li>
           </ul>
         </div>
       </div>

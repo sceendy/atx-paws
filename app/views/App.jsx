@@ -9,27 +9,46 @@ import '../components/Typography';
 
 import Header from './Header';
 import PetList from './pets/List';
-import Map from './map/Maps';
+import Map from './map/Map.jsx';
 import FilterForm from './pets/Filter';
 
 import { FetchPets, FilterPets, SetFilter } from '../actions/pets';
 
 class App extends Component {
   componentDidMount(){
-    this.props.dispatch(FetchPets());
     this.applyRouteParams();
   }
 
   applyRouteParams() {
-    let searchTerms = this.props.location.search;
-    const filterParsed = queryString.parse(searchTerms);
-    this.handleFilterForm(filterParsed);
+    Promise.resolve(this.props.dispatch(FetchPets()))
+      .then(() => {
+        let searchTerms = this.props.location.search;
+        if (searchTerms) {
+          const filterParsed = queryString.parse(searchTerms);
+          this.handleFilterForm(filterParsed);
+        }
+      });
+  }
+
+  plotMarkers() {
+    if (this.props.filteredPets) {
+      return this.props.filteredPets.map((pet) => {
+        let type = pet.type.toLowerCase();
+        return ({
+          id: pet.animal_id,
+          latitude: Number(pet.location.latitude),
+          longitude: Number(pet.location.longitude),
+          typeUrl: `https://sceendy.com/atx-paw-finder/assets/${type}-shadow.svg`
+        });
+      });
+    }
   }
 
   handleFilterForm(filter) {
-    delete filter.onChange;
     this.props.dispatch(SetFilter(filter));
-    this.props.dispatch(FilterPets(this.props.filter));
+    this.props.dispatch(FilterPets(filter));
+
+    delete filter.filterSubmit;
     let stringifyIt = queryString.stringify(filter);
     this.props.history.push(({search: stringifyIt}));
   }
@@ -40,17 +59,24 @@ class App extends Component {
         <Header />
         <div className="container">
           <FilterForm 
-            petType={this.props.filter.petType}
-            sex={this.props.filter.sex}
-            age={this.props.filter.age}
-            onChange={filter => this.handleFilterForm(filter)}
+            {...this.props.filter}
+            filterSubmit={filters => this.handleFilterForm(filters)}
           />
           <div className="main__layout">
             <PetList 
               filteredPets={this.props.filteredPets}
               filter={this.props.filter}
             />
-            <Map />
+            <div className="map__container u--xs-hide">
+              <Map
+                isMarkerShown
+                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `100%` }} />}
+                mapElement={<div style={{ height: `73vh` }} />}
+                markerData={this.plotMarkers()}
+              />
+            </div>
           </div>
         </div>
       </div>

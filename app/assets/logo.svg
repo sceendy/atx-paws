@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="291px" height="28px" viewBox="0 0 291 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect x="0.631274893" y="5.3902439" width="25" height="23.9283024" id="rect-1"></rect>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main" transform="translate(-78.000000, -30.000000)">
+            <g id="logo" transform="translate(78.000000, 26.000000)">
+                <g id="Logo">
+                    <g id="Group">
+                        <g id="ic_pets_black_48dp">
+                            <image x="0.631274893" y="5.3902439" width="25" height="23.9283024" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABMCAYAAAD6BTBNAAAABGdBTUEAA1teXP8meAAABkFJREFUeAHtnEmIXUUUhhNNUCMOEdMOKE4rFRVF1JUQECfQKIpTDC+I4sbZgC7dCIK4UBEFcenKEcQB0SzdRNCFILhJp1vTIihG4xyH/2u7Grmv7q3z6p267973PPBT79Xwn6r/3rpVdd7tXrOmrB0q+oHwurAg/LECPpO3TaBOrsX4D4hsUXhDwPdhQi/tVvV6r/B3Al+p/CZhVLPy04dbRiWfZP2D5fwFISVctfw5taFtynL5nxexhT/lv3h5jnhBTERM2Tj8iNhpY1oFMXLTpunswd/Z6cwD3fLMSwn7pXgOidwmXvw8c8dZuCJd88kaiCYljrX89kiXPPlZ/V3sIBeWf0m2OHJdF+EqzR9x2W4WezvrHZaqNx/puif/ngh/VtbarFbxRmyS18WLRs79XS2qz0FPfjbb60fuVaSB5xSO0E9/lqeAS45ysZpXrTR/1Z/pu6eAH5s82irFuGJ5NrbhWruGs/JyPAXk8O5lMa5YXq4/T67cPgy1Y3PKJjW1wqbKF8RRXUBw5sW/WMOPj4nbzepBSqBU+Q0No/Dgv7GB362Iqz0QcuJ4BARSItWVP2MYwTj8z9bwEzPcLrwpcJRkm5MdV7TG2erieISMcgb5tNpZwk25/IhX5WcfvFX4Wqi7qCE/GVeEPCdUhFjVjilrOUjK1QwdqEt55jVNW7hiRtTGwr+oerFpS59fFOr6VZdfG1fMES84QcSYsRgQGHhVmBd+W8Fupa8ItwmxBUPZJovxc2LhqIZP7q4YP3dejnhhvENxRY84W1McT/3tlCFsECM3XY0rsmCUjON1Sjl1hgXD8sxLCbsaVxyIMFXZWs507bptVwet40nV28ZJZIvjiGNxPEd6FyrPPi5zsQqmlLaWz7sMsSyJZeW2jncPqxGr1jqnPsfieE7UbjRskGPbrhwHB5jC/9sYCiDg0hjtq01jcbxqnUl/dx0vAnrG2Ty5Sgnt2cddCOgZG/PkKiUgAQMvWx4vG+mScTxrZ+dUcYfwocBGlwUprIZ8Zup9IDwkbBJyjY20x8GBM/bqMdEjzpYTEECEw4UnhF+EIFgq/Ul1HxdyX13jGJbykSofClAQEEg1qiu3xPFEP2TnKOcLoY43lf+52p41xGrLICCQ4q8rj8YV2RvliGiN41WHdbkyfhxjEGFw+8SxuUpu+M54c0REvMZ9pDXOtiCi3Gl7ldr+KgQRxk2Z/pcJOcZ0tqwBPPOGpm2dQx6OpeJ4l4j7Z2Fc0art94vzQiHHWEh54eg1gVgipzPA56a4oorbtdPl7huhOniv76zep7Q7pPa8bZQrHvpeYtXxfCYfR7Y3rHY8rZebnULdoL3z35MvrwBJOwolvLzUonjhYrDCToU9olGEQbWdPtB3Ba/XAP6aoIB/yvc1fRWRLQVHrrbvuqo/Nuvn9U3Ek9VhjwN7VYzc72yCT+iLiEeoo58KuYMt1Y444Iaui8gZ8e0OihcuCvE7YqCdNQ7aobNdTZ/qqno7eiBeuKj3d03Eh3skXhDxvq6I2Kc7L4gX0olvtB/s4Z0XxAvpvZO6E++aAvEQkZPSHW2LyBGNY1K4in1Ped3j2rZEvEiOSkSUJ30ROHZeUFrE4+TA8+2mSYtW9U8I/9hSIq4V8btC1em0fX+rlIB3zoB44WYYeIt4tAi/nSEB+eGLoEjSrAdrNsvHJNmmp8ImDYU9btJ4rqWM30yJ7W1MVZyycu7CkwR+H641yx14tVrPmngINidcwYcmswjIaxizalemBm4RkI3zrNrFqYFbnoE/iMS0IqWc9bCcnUfjxtoiIIdtS70e6pPscvLPNixTGJJZtcYVGFEsArKFmVXjvcFGswjIizqzau94DPx8kYQz4qylZ3sICEeXf+stdVH5hxtudqaY+HP9Up3tGi8B4zPc1Fsh4rfUrg20VH/u9hYv8PXhzYNxRX0yDLZU+piIJ/nO37gC1bXnR7JHRxUt94RxqRxxN547qkPV/17gdTN+W2GfxZv1hI44NlG2X+AZxCaWC4Wx3eI96w0Cx8qjBI5Yc8LxwokCr9QByka1T9TgHuGjURvmCogf2hLu2SpsFnj/jkF/JywJiDT/H+xe+bxPaUlDwNNWcKrSAMSlj4TmuBgcEHYKLwvvC1n2D8w+v0/kdak4AAAAAElFTkSuQmCC"></image>
+                            <use fill="#9281FA" fill-rule="evenodd" xlink:href="#rect-1"></use>
+                        </g>
+                        <text id="Paw-Finder" font-family="NexaRustSans-Black, Nexa Rust Sans" font-size="36" font-weight="700" line-spacing="36" fill="#2F3B52">
+                            <tspan x="41" y="43">Paw Finder</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

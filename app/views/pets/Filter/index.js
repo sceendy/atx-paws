@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+const dog = require('../../../assets/dog.svg');
+const cat = require('../../../assets/cat.svg');
+
 import '../../../components/Button';
 import '../../../components/Form';
-import { ETIME } from 'constants';
 
 class FilterForm extends Component {
   constructor(props) {
@@ -12,57 +14,62 @@ class FilterForm extends Component {
 
     this.updateSex = this.updateSex.bind(this);
     this.updateType = this.updateType.bind(this);
-    this.updateAge = this.updateAge.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleFormSubmit(e) {
     e.preventDefault();
-    this.props.onChange(this.state);
+    this.props.filterSubmit(this.state);
   }
 
   updateSex(e) {
+    e.preventDefault();
     this.setState({sex: e.target.value});
   }
 
-  updateAge(e) {
-    this.setState({age: e.target.value});
-  }
-
   updateType(e) {
-    let prevButtonSelected = document.getElementsByName(this.state.petType)[0];
-    if (prevButtonSelected) prevButtonSelected.classList.remove('btn-group__item--selected');
+    this.resetButtonGroup();
     this.setState({petType: e.target.name});
     e.target.classList.add('btn-group__item--selected');
   }
 
-  componentDidUpdate() {
-    let initialType = document.getElementsByName(this.state.petType)[0];
+  resetButtonGroup() {
+    let buttonGroup = document.getElementsByClassName('btn-group')[0];
+    buttonGroup.childNodes.forEach(c => c.classList.remove('btn-group__item--selected'));
+  }
 
-    if (this.state.petType && initialType) {
+  componentWillReceiveProps() {
+    if (this.state.petType) {
+      this.resetButtonGroup();
+      let initialType = document.getElementsByName(this.state.petType)[0];
       initialType.classList.add('btn-group__item--selected');
+      this.setState({...this.props});
     }
   }
 
   render() {
     return (
       <div className="form__container--inline">
-        <form className="form__group--inline">
+        <form className="form__group--inline" onSubmit={this.handleFormSubmit}>
           <div 
             className="btn-group" 
             role="group" 
             aria-label="Pet Type" 
             onClick={this.updateType}
           >
-            <button type="button" className="btn btn--secondary btn-group__item" name="dog">dog</button>
-            <button type="button" className="btn btn--secondary btn-group__item" name="cat">cat</button>
+            <button type="button" className="btn btn--secondary btn-group__item" name="dog">
+              <img src={dog} alt="dog icon" />
+            </button>
+            <button type="button" className="btn btn--secondary btn-group__item" name="cat">
+              <img src={cat} alt="cat icon" />
+            </button>
             <button type="button" className="btn btn--secondary btn-group__item" name="all">both</button>
           </div>
           <div className="select__container--custom">
             <select 
-              className="select--custom btn btn--secondary" 
-              value={this.state.sex} 
+              className="select--custom btn btn--secondary"
               onChange={this.updateSex}
+              value={this.state.sex}
             >
               <option value="Intact Male">Intact Male</option>
               <option value="Intact Female">Intact Female</option>
@@ -71,39 +78,14 @@ class FilterForm extends Component {
               <option value="all">All Males/Females</option>
             </select>
           </div>
-          <div className="select__container--custom">
-            <select 
-              className="select--custom btn btn--secondary" 
-              value={this.state.age} 
-              onChange={this.updateAge}
+          <div className="flex--grow">
+            <button 
+              type="submit" 
+              className="btn btn--primary text--center" 
             >
-              <option value="puppy">Puppy</option>
-              <option value="kitten">Kitten</option>
-              <option value="young">Young</option>
-              <option value="adult">Adult</option>
-              <option value="senior">Senior</option>
-              <option value="all">All Ages</option>
-            </select>
+              Search Pets
+            </button>
           </div>
-          <div>
-            <input type="checkbox" id="immediate" name="immediate" value="optional" />
-            <label htmlFor="optional">Immediate</label>
-          </div>
-          <div>
-            <input type="checkbox" id="specialNeeds" name="specialNeeds" value="optional" />
-            <label htmlFor="optional">Special needs</label>
-          </div>
-          <div>
-            <input type="checkbox" id="available" name="available" value="optional" />
-            <label htmlFor="available">Available</label>
-          </div>
-          <button 
-            type="submit" 
-            className="btn btn--primary text--center" 
-            onClick={this.handleFormSubmit}
-          >
-            Search Pets
-          </button>
         </form>
       </div>
     )
@@ -113,7 +95,6 @@ class FilterForm extends Component {
 FilterForm.propTypes = {
   sex: PropTypes.string,
   petType: PropTypes.string,
-  age: PropTypes.string,
   onChange: PropTypes.func,
 };
 

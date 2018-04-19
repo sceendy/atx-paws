@@ -10,6 +10,10 @@
   --light-bg: #F6F6F8;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   background-color: var(--light-bg);
   font-family: var(--body-font);

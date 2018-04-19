@@ -1,3 +1,24 @@
 .main__layout {
-  
+  display: grid;
+  grid-gap: 0.5rem;
+}
+
+.u--xs-hide {
+  display: none;
+}
+
+@media screen and (min-width: 64rem) {
+  .flex--grow {
+    flex-grow: 1;
+    align-self: flex-end;
+    & > .btn {
+      float: right;
+    }
+  }
+  .main__layout {
+    grid-template-columns: 2fr 3fr;
+  }
+  .u--xs-hide {
+    display: block;
+  }
 }
