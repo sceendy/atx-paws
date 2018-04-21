@@ -17,8 +17,10 @@ class PetList extends Component {
     })();
 
     return (
-      <div>
-        <h3>{this.props.filteredPets.length} result{textPlural} for {filterText}</h3>
+      <article>
+        <header class="u__text--blue">
+          {this.props.filteredPets.length} result{textPlural} for {filterText}
+        </header>
         {
           !this.props.filteredPets &&
           <p>LOADING....</p>
@@ -34,7 +36,7 @@ class PetList extends Component {
             )}
           </div>
         </LazyLoad>
-      </div>
+      </article>
     )
   }
 };

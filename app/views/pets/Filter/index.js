@@ -68,7 +68,8 @@ class FilterForm extends Component {
             <button type="button" className="btn btn--primary-inverted btn-group__item" name="all">both</button>
           </div>
           <div className="select__container--custom">
-            <select 
+            <select
+              aria-label="Pet Gender"
               className="select--custom btn btn--primary-inverted"
               onChange={this.updateSex}
               value={this.state.sex}
