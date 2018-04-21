@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../components/Nav';
-const logo = require('../logo.png');
+const logo = require('../assets/logo.png');
 
 const Header = () => {
   return (

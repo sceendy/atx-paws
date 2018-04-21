@@ -18,7 +18,7 @@ class PetList extends Component {
 
     return (
       <article>
-        <header class="u__text--blue">
+        <header className="u__text--blue">
           {this.props.filteredPets.length} result{textPlural} for {filterText}
         </header>
         {

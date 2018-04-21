@@ -1,24 +1,36 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './app/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: 'body',
+  title: 'ATX Paw Finder'
 });
 
 module.exports = {
   entry: './app/index.js',
+  devServer: {
+    contentBase: './dist'
+  },
+  devtool: 'inline-source-map',
   output: {
     path: path.resolve('dist'),
-    filename: 'index_bundle.js'
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
   },
   module: {
     rules: [
       { test: /\.css$/,
         use: [
           'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'css-loader', 
+            options: {
+              importLoaders: 1
+            }
+          },
           'postcss-loader'
         ]
       },
@@ -45,5 +57,8 @@ module.exports = {
       }
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    HtmlWebpackPluginConfig
+  ]
 }
