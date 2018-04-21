@@ -22,9 +22,10 @@
 
 }
 
-.btn--secondary {
+.btn--primary-inverted {
 	border: solid 3px;
-	color: var(--primary);
+	background-color: white;
+	border-color: var(--primary);
 }
 
 .btn-group {
@@ -38,8 +39,9 @@
 	padding-bottom: 5px;
 	&.btn-group__item--selected {
 		background: #ddddff;
+		color: var(--primary);
 	}
-	&:first-child {
+	&:nth-child(2) {
 		border-top-left-radius: 25px;
 		border-bottom-left-radius: 25px;
 		border-right-width: 0;

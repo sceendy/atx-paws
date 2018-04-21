@@ -5,9 +5,10 @@
   --heading-font: 'Bungee', sans-serif;
   --body-font: 'Roboto', sans-serif;
   --primary: #9281FA;
+  --primary-light: #a094c5;
   --secondary: #FC1474;
-  --blue: #2F3B52;
-  --light-bg: #F6F6F8;
+  --blue: #1E0D46;
+  --light-bg: #F1F2F7;
 }
 
 * {
@@ -29,11 +30,17 @@ h1 {
 h2 {
   display: flex;
   align-items: center;
+  margin: 0;
 }
 
-h3 { margin-top: 0; }
+h3 {
+  color: var(--primary-light);
+  margin-top: 0;
+}
 
 .u--text-sm { font-size: 0.8rem; }
+.u--hide { display: none; }
+.bg--purple { border-top: 4px solid var(--blue); }
 
 .container {
   width: 90vw;

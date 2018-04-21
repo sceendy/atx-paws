@@ -20,7 +20,11 @@ class PetList extends Component {
       <div>
         <h3>{this.props.filteredPets.length} result{textPlural} for {filterText}</h3>
         {
-          !this.props.filteredPets.length &&
+          !this.props.filteredPets &&
+          <p>LOADING....</p>
+        }
+        {
+          this.props.filteredPets && this.props.filteredPets.length === 0 &&
           <p>No pets found.</p>
         }
         <LazyLoad height={'73vh'}>

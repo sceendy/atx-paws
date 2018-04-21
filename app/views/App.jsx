@@ -7,6 +7,9 @@ import '../components/Badge';
 import '../components/Layout';
 import '../components/Typography';
 
+const dogMarker = require('../assets/dog-marker.svg');
+const catMarker = require('../assets/cat-marker.svg');
+
 import Header from './Header';
 import PetList from './pets/List';
 import Map from './map/Map.jsx';
@@ -38,7 +41,7 @@ class App extends Component {
           id: pet.animal_id,
           latitude: Number(pet.location.latitude),
           longitude: Number(pet.location.longitude),
-          typeUrl: `https://sceendy.com/atx-paw-finder/assets/${type}-shadow.svg`
+          typeUrl: type === 'dog' ? dogMarker : catMarker
         });
       });
     }

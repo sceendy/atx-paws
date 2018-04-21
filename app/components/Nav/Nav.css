@@ -3,13 +3,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 0.5rem 0;
 }
 
 @media screen and (min-width: 64rem) {
   .main__header {
     align-items: center;
     flex-direction: row;
-    padding: 1rem 0 0.5rem;
+    padding: 1rem 0 0;
   }
 }

@@ -47,7 +47,7 @@
 
 @media screen and (min-width: 64rem) {
   .card__list {
-    max-height: 73vh;
+    max-height: 71vh;
     overflow-y: scroll;
     padding-right: 10px;
   }

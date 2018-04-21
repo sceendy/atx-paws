@@ -38,13 +38,14 @@ class FilterForm extends Component {
     buttonGroup.childNodes.forEach(c => c.classList.remove('btn-group__item--selected'));
   }
 
-  componentWillReceiveProps() {
-    if (this.state.petType) {
-      this.resetButtonGroup();
-      let initialType = document.getElementsByName(this.state.petType)[0];
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps !== prevState) {
+      //this.resetButtonGroup();
+      let initialType = document.getElementsByName(nextProps.petType)[0];
       initialType.classList.add('btn-group__item--selected');
-      this.setState({...this.props});
+      return {...nextProps};
     }
+    return null;
   }
 
   render() {
@@ -57,17 +58,18 @@ class FilterForm extends Component {
             aria-label="Pet Type" 
             onClick={this.updateType}
           >
-            <button type="button" className="btn btn--secondary btn-group__item" name="dog">
+            <legend className="u--hide">Pet Type</legend>
+            <button type="button" className="btn btn--primary-inverted btn-group__item" name="dog">
               <img src={dog} alt="dog icon" />
             </button>
-            <button type="button" className="btn btn--secondary btn-group__item" name="cat">
+            <button type="button" className="btn btn--primary-inverted btn-group__item" name="cat">
               <img src={cat} alt="cat icon" />
             </button>
-            <button type="button" className="btn btn--secondary btn-group__item" name="all">both</button>
+            <button type="button" className="btn btn--primary-inverted btn-group__item" name="all">both</button>
           </div>
           <div className="select__container--custom">
             <select 
-              className="select--custom btn btn--secondary"
+              className="select--custom btn btn--primary-inverted"
               onChange={this.updateSex}
               value={this.state.sex}
             >
