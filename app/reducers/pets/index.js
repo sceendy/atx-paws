@@ -6,7 +6,10 @@ const pets = (state = {initial: [], filteredPets: []}, action) => {
       return {
         ...state,
         filteredPets: state.initial.filter(p => {
+          const isAtAAC = p.at_aac.charAt(0) === 'Y';
+
           if ((action.sex === 'all' || action.sex === p.sex)
+            && (action.atAAC === false || action.atAAC === isAtAAC.toString())
             && (action.petType === 'all' || action.petType.toLowerCase() === p.type.toLowerCase())) {
             return p;
           } else {

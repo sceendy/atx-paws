@@ -18,6 +18,12 @@ import FilterForm from './pets/Filter';
 import { FetchPets, FilterPets, SetFilter } from '../actions/pets';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.props.history.listen((location, action) => {
+      if (location.search === "") this.resetFilter();
+    });
+  }
   componentDidMount(){
     this.applyRouteParams();
   }
@@ -54,6 +60,14 @@ class App extends Component {
     delete filter.filterSubmit;
     let stringifyIt = queryString.stringify(filter);
     this.props.history.push(({search: stringifyIt}));
+  }
+
+  resetFilter() {
+    this.handleFilterForm({
+      sex: 'all',
+      petType: 'all',
+      atAAC: false
+    });
   }
 
   render() {

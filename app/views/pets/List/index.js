@@ -8,12 +8,11 @@ class PetList extends Component {
     const filters = this.props.filter;
     const textPlural = this.props.filteredPets.length === 1 ? '' : 's';
     const filterText = (() => {
-      const typeExists = this.props.filter.petType !== 'all';
-      const values = Object.values(this.props.filter)
-        .filter(v => v !== 'all' && typeof v !== 'undefined' && v.length !== 0)
-        .map(v =>  v.toLowerCase().replace(/\+/g, ' '));
-
-      return `${values.join(' ')}${typeExists ? 's' : ' pets'}`; 
+      let text = '';
+      if (filters.sex !== 'all') text += filters.sex + ' ';
+      if (filters.petType !== 'all') text += filters.petType + 's';
+      if (filters.petType === 'all') text += ' pets'
+      return text.toLowerCase();
     })();
 
     return (
@@ -21,12 +20,10 @@ class PetList extends Component {
         <header className="u__text--blue">
           {this.props.filteredPets.length} result{textPlural} for {filterText}
         </header>
-        {
-          !this.props.filteredPets &&
+        { !this.props.filteredPets &&
           <p>LOADING....</p>
         }
-        {
-          this.props.filteredPets && this.props.filteredPets.length === 0 &&
+        { this.props.filteredPets && this.props.filteredPets.length === 0 &&
           <p>No pets found.</p>
         }
         <LazyLoad height={'73vh'}>
