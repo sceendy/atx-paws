@@ -24,6 +24,7 @@ class App extends Component {
       if (location.search === "") this.resetFilter();
     });
   }
+
   componentDidMount(){
     this.applyRouteParams();
   }

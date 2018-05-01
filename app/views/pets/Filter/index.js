@@ -68,14 +68,14 @@ class FilterForm extends Component {
               <option value="all">All Males/Females</option>
             </select>
           </div>
-          {/* <label htmlFor="atAAC">
+          <label htmlFor="atAAC">
             <input
               name="atAAC"
               type="checkbox"
               value={this.state.atAAC}
               onChange={this.updateAtAAC}
             /> Only at AAC
-          </label> */}
+          </label>
           <div className="flex--grow">
             <Button 
               type="submit" 
