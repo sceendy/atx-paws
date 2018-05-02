@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import LazyLoad from 'react-lazyload';
 
-import '../../../components/Typography';
-import '../../../components/Card';
+// import '../../../components/Typography';
+// import '../../../components/Card';
 
 class PetCard extends Component {
   constructor(props) {

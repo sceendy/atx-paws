@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 
 import PetCard from '../Card';
@@ -16,7 +17,7 @@ class PetList extends Component {
     })();
 
     return (
-      <article>
+      <article dataTest="pets-list">
         <header className="u__text--blue">
           {this.props.filteredPets.length} result{textPlural} for {filterText}
         </header>
@@ -36,6 +37,11 @@ class PetList extends Component {
       </article>
     )
   }
+};
+
+PetList.propTypes = {
+  filteredPets: PropTypes.arrayOf(Object),
+  filter: PropTypes.array,
 };
 
 export default PetList;

@@ -10,14 +10,23 @@
     "start:dev": "webpack-dev-server --config config/webpack.dev.js --mode development",
     "server": "node server.js",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "app/__mocks__/fileMock.js",
+      "\\.(css|less)$": "app/__mocks__/styleMock.js"
+    }
   },
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "cross-fetch": "^2.1.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.0.6",
+    "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^4.2.0",
     "path": "^0.12.7",
     "postcss-cssnext": "^3.1.0",
@@ -37,10 +46,15 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "jest": "^22.4.3",
     "postcss-loader": "^2.1.1",
-    "react-styleguidist": "^6.2.7"
+    "react-styleguidist": "^6.2.7",
+    "react-test-renderer": "^16.3.2"
   }
 }
