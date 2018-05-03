@@ -14,7 +14,7 @@ class PetCard extends Component {
       <div className="card" key={this.props.animal_id}>
         <div className="card__image">
           <img
-            src={`http://petharbor.com/get_image.asp?RES=Detail&ID=${this.props.animal_id}&LOCATION=ASTN`}
+            src={`https://petharbor.com/get_image.asp?RES=Detail&ID=${this.props.animal_id}&LOCATION=ASTN`}
             alt={`Image for pet #${this.props.animal_id}`}
           />
         </div>
