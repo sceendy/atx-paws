@@ -4,6 +4,8 @@ import LazyLoad from 'react-lazyload';
 
 import PetCard from '../Card';
 
+import '../../../components/Card';
+
 class PetList extends Component {
   render() {
     const textPlural = this.props.filteredPets.length === 1 ? '' : 's';

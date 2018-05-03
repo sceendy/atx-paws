@@ -1,1 +1,1 @@
-module.exports = { Nav };
+module.exports = {};

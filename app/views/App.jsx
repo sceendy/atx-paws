@@ -9,10 +9,11 @@ import '../components/Typography';
 
 const dogMarker = require('../assets/dog-marker.svg');
 const catMarker = require('../assets/cat-marker.svg');
+const API_URL = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.MAP_KEY || ''}`;
 
 import Header from './Header';
 import PetList from './pets/List';
-import Map from './map/Map.jsx';
+import Map from './map';
 import FilterForm from './pets/Filter';
 
 import { FetchPets, FilterPets, SetFilter } from '../actions/pets';
@@ -88,7 +89,7 @@ class App extends Component {
             <div className="map__container u--xs-hide">
               <Map
                 isMarkerShown
-                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                googleMapURL={API_URL}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `100%` }} />}
                 mapElement={<div style={{ height: `75vh` }} />}

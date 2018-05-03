@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import petFinderApp from './reducers';
 import App from './views/App.jsx';
 
