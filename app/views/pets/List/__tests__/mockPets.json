@@ -1,0 +1,40 @@
+[
+  {
+    "image":{
+      "url":"http://www.petharbor.com/pet.asp?uaid=ASTN.A770638"
+    },
+    "at_aac":"No (contact for more info)",
+    "color":"Tan/White",
+    "sex":"Intact Male",
+    "animal_id":"A770638",
+    "location":{
+      "latitude":"30.377001",
+      "human_address":"{\"address\":\"\",\"city\":\"LAKEWAY\",\"state\":\"\",\"zip\":\"78734\"}",
+      "needs_recoding":false,
+      "longitude":"-97.952751"
+    },
+    "type":"Dog",
+    "looks_like":"Staffordshire Mix",
+    "age":"2 years",
+    "intake_date":"2018-04-23T00:00:00"
+  },
+  {
+    "image":{
+      "url":"http://www.petharbor.com/pet.asp?uaid=ASTN.A770643"
+    },
+    "at_aac":"No (contact for more info)",
+    "color":"Blue/White",
+    "sex":"Intact Female",
+    "animal_id":"A770643",
+    "location":{
+      "latitude":"30.224135",
+      "human_address":"{\"address\":\"1137 WOODWARD STREET\",\"city\":\"AUSTIN\",\"state\":\"\",\"zip\":\"78704\"}",
+      "needs_recoding":false,
+      "longitude":"-97.74852"
+    },
+    "type":"Dog",
+    "looks_like":"Pit Bull Mix",
+    "age":"6 months",
+    "intake_date":"2018-04-23T00:00:00"
+  }
+]

@@ -6,19 +6,20 @@ import PetCard from '../Card';
 
 class PetList extends Component {
   render() {
-    const filters = this.props.filter;
     const textPlural = this.props.filteredPets.length === 1 ? '' : 's';
     const filterText = (() => {
       let text = '';
-      if (filters.sex !== 'all') text += filters.sex + ' ';
-      if (filters.petType !== 'all') text += filters.petType + 's';
-      if (filters.petType === 'all') text += ' pets'
+      if (this.props.filter) {
+        if (this.props.filter.sex !== 'all') text += this.props.filter.sex + ' ';
+        if (this.props.filter.petType !== 'all') text += this.props.filter.petType + 's';
+        if (this.props.filter.petType === 'all') text += ' pets';
+      }
       return text.toLowerCase();
     })();
 
     return (
-      <article dataTest="pets-list">
-        <header className="u__text--blue">
+      <article data-test="pets-list">
+        <header className="u__text--blue" data-test="pets-list-header">
           {this.props.filteredPets.length} result{textPlural} for {filterText}
         </header>
         { !this.props.filteredPets &&
@@ -41,7 +42,7 @@ class PetList extends Component {
 
 PetList.propTypes = {
   filteredPets: PropTypes.arrayOf(Object),
-  filter: PropTypes.array,
+  filter: PropTypes.object,
 };
 
 export default PetList;
