@@ -1,14 +1,12 @@
 const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-
 const app = express();
-const config = require('./config/webpack.prod.js');
-const compiler = webpack(config);
+const path = require('path');
 
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
-}));
+app.use(express.static(path.join(__dirname, 'dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 app.listen(3000, function () {
   console.log('ATX Paw Finder running\n');
