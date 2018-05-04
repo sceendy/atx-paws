@@ -5,20 +5,16 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './app/index.html',
+  template: 'app/index.html',
   filename: 'index.html',
   inject: 'body',
   title: 'ATX Paw Finder'
 });
 
-const ENV = process.env.NODE_ENV === 'prod' ? 'prod' : 'dev';
-
 module.exports = {
-  entry: './app/index.js',
-  devServer: {
-    contentBase: './dist'
+  entry: {
+    app: './app/index.js'
   },
-  devtool: ENV === 'prod' ? false : 'inline-source-map',
   output: {
     path: path.resolve('dist'),
     filename: '[name].bundle.js',
@@ -59,7 +55,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin('../dist', {allowExternal: true}),
     HtmlWebpackPluginConfig,
     new CopyWebpackPlugin([
       { from: 'app/assets', to: 'assets' }
