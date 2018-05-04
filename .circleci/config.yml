@@ -40,6 +40,6 @@ deployment:
   staging:
     branch: master
     heroku:
-      appname: atx-paws
+      appname: atxpawfinder
 
 
