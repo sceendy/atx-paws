@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="288px" height="28px" viewBox="0 0 288 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo" transform="translate(-5.000000, -4.000000)">
+            <g id="Logo" transform="translate(3.000000, 0.000000)">
+                <g id="Group">
+                    <g id="ic_pets_48px" transform="translate(0.000000, 2.000000)">
+                        <circle id="Oval" fill="#9281FA" fill-rule="nonzero" cx="6" cy="12.6666667" r="3.33333333"></circle>
+                        <circle id="Oval" fill="#9281FA" fill-rule="nonzero" cx="12" cy="7.33333333" r="3.33333333"></circle>
+                        <circle id="Oval" fill="#9281FA" fill-rule="nonzero" cx="20" cy="7.33333333" r="3.33333333"></circle>
+                        <circle id="Oval" fill="#9281FA" fill-rule="nonzero" cx="26" cy="12.6666667" r="3.33333333"></circle>
+                        <path d="M23.12,19.8133333 C21.9533333,18.46 20.98,17.2933333 19.8133333,15.94 C19.1933333,15.22 18.4133333,14.4933333 17.4866667,14.18 C17.3466667,14.1333333 17.2,14.0933333 17.0466667,14.0666667 C16.7066667,14 16.3466667,14 16,14 C15.6533333,14 15.2933333,14 14.9533333,14.0666667 C14.8066667,14.0933333 14.66,14.1333333 14.5133333,14.18 C13.5866667,14.4933333 12.8066667,15.22 12.1866667,15.94 C11.02,17.2933333 10.0466667,18.46 8.88,19.8133333 C7.13333333,21.5533333 4.99333333,23.4933333 5.38,26.2066667 C5.76666667,27.56 6.74,28.92 8.49333333,29.3066667 C9.46666667,29.5 12.5733333,28.7266667 15.88,28.7266667 C15.92,28.7266667 15.96,28.7333333 16,28.7333333 C16.04,28.7333333 16.08,28.7266667 16.12,28.7266667 C19.4266667,28.7266667 22.5333333,29.5 23.5066667,29.3066667 C25.2533333,28.92 26.2266667,27.5666667 26.62,26.2066667 C27.0066667,23.4933333 24.8733333,21.5533333 23.12,19.8133333 L23.12,19.8133333 Z" id="Shape" fill="#9281FA" fill-rule="nonzero"></path>
+                        <polygon id="Shape" points="0 0 32 0 32 32 0 32"></polygon>
+                    </g>
+                    <text id="Paw-Finder" font-family="NexaRustSans-Black, Nexa Rust Sans" font-size="36" font-weight="700" line-spacing="36" fill="#2F3B52">
+                        <tspan x="40" y="43">Paw Finder</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

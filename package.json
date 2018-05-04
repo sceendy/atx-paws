@@ -23,6 +23,8 @@
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "clean-webpack-plugin": "^0.1.19",
+    "compression-webpack-plugin": "^1.1.11",
+    "copy-webpack-plugin": "^4.5.1",
     "cross-fetch": "^2.1.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
@@ -42,11 +44,11 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1",
-    "webpack-merge": "^4.1.2",
-    "uglifyjs-webpack-plugin": "^1.2.5"
+    "webpack-merge": "^4.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
