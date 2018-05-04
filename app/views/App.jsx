@@ -27,16 +27,11 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.applyRouteParams();
-  }
-
-  applyRouteParams() {
     const applyFilter = async () => {
       const loadPets = await this.props.dispatch(FetchPets());
       if (loadPets) {
-        let searchTerms = this.props.location.search;
-        if (searchTerms) {
-          const filterParsed = queryString.parse(searchTerms);
+        if (this.props.location.search) {
+          const filterParsed = queryString.parse(this.props.location.search);
           this.handleFilterForm(filterParsed);
         }
       }

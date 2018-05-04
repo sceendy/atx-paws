@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import LazyLoad from 'react-lazyload';
-
-// import '../../../components/Typography';
-// import '../../../components/Card';
+import PropTypes from 'prop-types';
 
 class PetCard extends Component {
   constructor(props) {
@@ -11,7 +8,7 @@ class PetCard extends Component {
 
   render() {
     return (
-      <div className="card" key={this.props.animal_id}>
+      <div className="card" key={this.props.animal_id} data-test="pet-card">
         <div className="card__image">
           <img
             src={`https://petharbor.com/get_image.asp?RES=Detail&ID=${this.props.animal_id}&LOCATION=ASTN`}
@@ -31,5 +28,14 @@ class PetCard extends Component {
     );
   }
 };
+
+PetCard.propTypes = {
+  animal_id: PropTypes.string,
+  looks_life: PropTypes.string,
+  type: PropTypes.string,
+  sex: PropTypes.string,
+  age: PropTypes.string,
+  color: PropTypes.string
+}
 
 export default PetCard;

@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 import PetList from '../index.js';
 import PetCard from '../../Card';
 
-const mockPetsJSON = require('./mockPets.json');
+import mockPetsJSON from '../../__mocks__/mockPets.json';
 
 let mockProps = {
   filter: {sex: 'neutered male', petType: 'dog'},
