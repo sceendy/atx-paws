@@ -10,7 +10,9 @@ const Header = () => {
     <div className="container">
       <div className="main__header">
         <Link to="/">
-          <h1><img src={logo} alt="ATX Paw Finder logo"/></h1>
+          <h1 data-test="logo">
+            <img src={logo} alt="ATX Paw Finder logo"/>
+          </h1>
         </Link>
       </div>
     </div>

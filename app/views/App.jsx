@@ -31,14 +31,15 @@ class App extends Component {
   }
 
   applyRouteParams() {
-    Promise.resolve(this.props.dispatch(FetchPets()))
-      .then(() => {
-        let searchTerms = this.props.location.search;
-        if (searchTerms) {
-          const filterParsed = queryString.parse(searchTerms);
-          this.handleFilterForm(filterParsed);
-        }
-      });
+    const applyFilter = async () => {
+      const loadPets = await this.props.dispatch(FetchPets());
+      let searchTerms = this.props.location.search;
+      if (searchTerms) {
+        const filterParsed = queryString.parse(searchTerms);
+        this.handleFilterForm(filterParsed);
+      }
+    }
+    applyFilter();
   }
 
   plotMarkers() {
