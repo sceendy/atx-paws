@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
 
 class PetCard extends Component {
   constructor(props) {
@@ -10,10 +11,12 @@ class PetCard extends Component {
     return (
       <div className="card" key={this.props.animal_id} data-test="pet-card">
         <div className="card__image">
-          <img
-            src={`https://petharbor.com/get_image.asp?RES=Detail&ID=${this.props.animal_id}&LOCATION=ASTN`}
-            alt={`Image for pet #${this.props.animal_id}`}
-          />
+          <LazyLoad height={150} width={200}>
+            <img
+              src={`https://petharbor.com/get_image.asp?RES=Detail&ID=${this.props.animal_id}&LOCATION=ASTN`}
+              alt={`Image for pet #${this.props.animal_id}`}
+            />
+          </LazyLoad>
         </div>
         <div className="card__content">
           <div className="card__title">{this.props.looks_like}</div>

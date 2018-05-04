@@ -90,7 +90,7 @@ class App extends Component {
                 googleMapURL={API_URL}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `100%` }} />}
-                mapElement={<div style={{ height: `75vh` }} />}
+                mapElement={<div style={{ height: `100vh` }} />}
                 markerData={this.plotMarkers()}
               />
             </div>

@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -10,16 +11,18 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   title: 'ATX Paw Finder'
 });
 
+const ENV = process.env.NODE_ENV === 'prod' ? 'prod' : 'dev';
+
 module.exports = {
   entry: './app/index.js',
   devServer: {
     contentBase: './dist'
   },
-  devtool: 'inline-source-map',
+  devtool: ENV === 'prod' ? false : 'inline-source-map',
   output: {
     path: path.resolve('dist'),
     filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
+    chunkFilename: '[name]-[chunkhash].bundle.js',
   },
   module: {
     rules: [
@@ -29,7 +32,8 @@ module.exports = {
           {
             loader: 'css-loader', 
             options: {
-              importLoaders: 1
+              importLoaders: 1,
+              minimize: true
             }
           },
           'postcss-loader'
@@ -48,11 +52,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'
-      }, {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader'
       }
@@ -63,6 +63,7 @@ module.exports = {
     HtmlWebpackPluginConfig,
     new CopyWebpackPlugin([
       { from: 'app/assets', to: 'assets' }
-    ])
+    ]),
+    new webpack.ProgressPlugin()
   ]
 }

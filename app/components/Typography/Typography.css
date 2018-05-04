@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Bungee|Roboto|Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /* VARIABLES */
 :root {
-  --heading-font: 'Bungee', sans-serif;
   --body-font: 'Roboto', sans-serif;
   --primary: #9281FA;
   --secondary: #FC1474;
@@ -10,9 +9,7 @@
   --light-bg: #F1F2F7;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   background-color: var(--light-bg);
@@ -21,7 +18,7 @@ html, body {
 }
 
 h1 {
-  font-family: var(--heading-font);
+  font-family: var(--body-font);
   color: var(--blue);
   margin: 0;
 }
@@ -47,5 +44,3 @@ h2 {
   width: 90vw;
   margin: 0 auto;
 }
-
-.material-icons { margin-right: 5px; }

@@ -21,3 +21,9 @@
     display: block;
   }
 }
+
+.map__container > div > div {
+  position: fixed;
+  position: sticky!important;
+  top: -1px;
+}

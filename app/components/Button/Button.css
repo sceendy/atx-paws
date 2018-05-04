@@ -59,12 +59,11 @@
 	width: auto;
 	&::after {
 		color: var(--secondary);
-		font-family: 'Material Icons';
-		font-size: 2rem;
-		content: '\E5C5';
+		font-size: .75rem;
+		content: '▼';
 		position: absolute;
-		right: 1.5rem;
-		top: 11px;
+		right: 2.3rem;
+		top: 21px;
 		z-index: 0;
 	}
 }

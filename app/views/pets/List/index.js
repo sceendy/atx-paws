@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LazyLoad from 'react-lazyload';
 
 import PetCard from '../Card';
 
@@ -30,13 +29,11 @@ class PetList extends Component {
         { this.props.filteredPets && this.props.filteredPets.length === 0 &&
           <p>No pets found.</p>
         }
-        <LazyLoad height={'73vh'}>
-          <div className="card__list">
-            { this.props.filteredPets.map(pet =>
-              <PetCard {...pet} key={pet.animal_id} />
-            )}
-          </div>
-        </LazyLoad>
+        <div className="card__list">
+          { this.props.filteredPets.map(pet =>
+            <PetCard {...pet} key={pet.animal_id} />
+          )}
+        </div>
       </article>
     )
   }

@@ -6,6 +6,17 @@ const common = require('./webpack.common.js');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 module.exports = merge(common, {
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    }
+  },
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true,
@@ -29,6 +40,6 @@ module.exports = merge(common, {
       test: /\.(js|html|css)$/,
       threshold: 10240,
       minRatio: 0.8
-    })
+    }),
   ]
 });

@@ -47,13 +47,11 @@
 
 @media screen and (min-width: 64rem) {
   .card__list {
-    max-height: 68vh;
-    overflow-y: scroll;
     padding-right: 10px;
   }
 
   .card {
-    margin: 0.25rem 0 1rem;
+    margin: 0.25rem 0.25rem 1rem;
     max-height: 150px;
     width: 100%;
     flex-wrap: nowrap;
