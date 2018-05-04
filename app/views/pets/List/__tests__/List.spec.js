@@ -20,12 +20,10 @@ const emptyContent = (
 );
 
 const list = (
-  <LazyLoad height={'73vh'}>
-    <div className="card__list">
-      <PetCard />
-      <PetCard />
-    </div>
-  </LazyLoad>
+  <div className="card__list">
+    <PetCard />
+    <PetCard />
+  </div>
 );
 
 const headerText = "2 results for ";
