@@ -53,6 +53,7 @@
     max-height: 150px;
     width: 100%;
     flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 
   .card__content {
@@ -61,10 +62,11 @@
   }
 
   .card__image {
+    background-color: #eee;
     border-radius: 0;
     border-bottom-left-radius: 25px;
     height: 150px;
-    width: 250px;
+    width: 200px;
     & > img {
       padding: 0;
       height: 150px;
@@ -74,6 +76,5 @@
 }
 
 .lazyload-placeholder {
-  background-color: #eee;
   width: 200px;
 }
