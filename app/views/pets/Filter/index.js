@@ -38,6 +38,10 @@ class FilterForm extends Component {
     this.setState({ atAAC: !e.target.getAttribute('value')});
   }
 
+  componentWillReceiveProps() {
+    if (this.state !== this.props) this.setState(this.props);
+  }
+
   render() {
     const petTypes = [
       { name: 'dog', type: 'image', content: dog },
