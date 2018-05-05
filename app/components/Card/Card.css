@@ -67,7 +67,8 @@
     border-bottom-left-radius: 25px;
     flex-grow: 1;
     height: 150px;
-    width: 200px;
+    min-width: 200px;
+    width: auto;
     & > img {
       padding: 0;
       height: 150px;

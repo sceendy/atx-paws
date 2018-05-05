@@ -80,6 +80,7 @@ class App extends Component {
           <FilterForm 
             {...this.props.filter}
             onChange={filter => this.handleFilterForm(filter)}
+            resetForm={this.props.resetFilter}
           />
           <div className="main__layout">
             <PetList 

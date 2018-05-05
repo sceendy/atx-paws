@@ -50,7 +50,7 @@ class FilterForm extends Component {
           <div className="flex--grow">
             <Button 
               type="primary"
-              onClick={() => this.resetForm}
+              onClick={() => this.props.resetForm}
               text="Reset Filter"
             />
           </div>
@@ -65,6 +65,7 @@ FilterForm.propTypes = {
   petType: PropTypes.string,
   atAAC: PropTypes.any,
   onChange: PropTypes.func,
+  resetForm: PropTypes.func,
 };
 
 export default FilterForm;
