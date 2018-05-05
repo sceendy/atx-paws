@@ -15,13 +15,13 @@ class PetList extends Component {
         if (this.props.filter.petType !== 'all') text += this.props.filter.petType + 's';
         if (this.props.filter.petType === 'all') text += ' pets';
       }
-      return text.toLowerCase();
+      return `${this.props.filteredPets.length} result${textPlural} for ${text.toLowerCase()}`;
     })();
 
     return (
       <article data-test="pets-list">
         <header className="u__text--blue" data-test="pets-list-header">
-          {this.props.filteredPets.length} result{textPlural} for {filterText}
+          {filterText}
         </header>
         { !this.props.filteredPets &&
           <p>LOADING....</p>

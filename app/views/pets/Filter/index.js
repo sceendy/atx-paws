@@ -8,40 +8,6 @@ import Button, { ButtonGroup } from '../../../components/Button';
 import '../../../components/Form';
 
 class FilterForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = props;
-
-    this.updateSex = this.updateSex.bind(this);
-    this.updateAtAAC = this.updateAtAAC.bind(this);
-    this.updateType = this.updateType.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-  }
-
-  handleFormSubmit(e) {
-    e.preventDefault();
-    this.props.filterSubmit(this.state);
-  }
-
-  updateSex(e) {
-    e.preventDefault();
-    this.setState({sex: e.target.value});
-  }
-
-  updateType(e) {
-    e.preventDefault();
-    this.setState({petType: e.target.name});
-  }
-
-  updateAtAAC(e) {
-    e.preventDefault();
-    this.setState({ atAAC: !e.target.getAttribute('value')});
-  }
-
-  componentWillReceiveProps() {
-    if (this.state !== this.props) this.setState(this.props);
-  }
-
   render() {
     const petTypes = [
       { name: 'dog', type: 'image', content: dog },
@@ -51,19 +17,19 @@ class FilterForm extends Component {
     
     return (
       <div className="form__container--inline">
-        <form className="form__group--inline" onSubmit={this.handleFormSubmit}>
+        <form className="form__group--inline">
           <ButtonGroup
             label="Pet Type"
-            onClick={this.updateType}
-            selected={this.state.petType}
+            onChange={petType => this.props.onChange({ ...this.props, petType })}
+            selected={this.props.petType}
             options={petTypes}
           />
           <div className="select__container--custom">
             <select
               aria-label="Pet Gender"
               className="select--custom btn btn--primary-inverted"
-              onChange={this.updateSex}
-              value={this.state.sex}
+              onChange={({ target: { value }}) => this.props.onChange({...this.props, sex: value})}
+              value={this.props.sex}
             >
               <option value="Intact Male">Intact Male</option>
               <option value="Intact Female">Intact Female</option>
@@ -72,22 +38,21 @@ class FilterForm extends Component {
               <option value="all">All Males/Females</option>
             </select>
           </div>
-          <label htmlFor="atAAC">
+          {/* <label htmlFor="atAAC">
             <input
               name="atAAC"
               type="checkbox"
-              value={this.state.atAAC}
-              onChange={this.updateAtAAC}
+              defaultChecked={this.props.atAAC}
+              value={this.props.atAAC}
+              onChange={(e) => this.props.onChange({...this.props, atAAC: e.getAttribute(checked) })}
             /> Only at AAC
-          </label>
+          </label> */}
           <div className="flex--grow">
             <Button 
-              type="submit" 
-              classNames="btn--primary text--center"
-              onClick={this.handleFormSubmit}
-            >
-              Search Pets
-            </Button>
+              type="primary"
+              onClick={() => this.resetForm}
+              text="Reset Filter"
+            />
           </div>
         </form>
       </div>
