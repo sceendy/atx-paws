@@ -1,6 +1,6 @@
 @import '../Typography/Typography.css';
 
-.badge-list {
+.badge__list {
   display: flex;
   list-style-type: none;
   margin: 0.5rem 0 0;

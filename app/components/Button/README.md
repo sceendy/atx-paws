@@ -1,13 +1,16 @@
-Basic button:
+Buttons:
 
 ```jsx
-<Button>Push Me</Button>
-```
 
-Big pink button:
+<Button 
+  type="primary"
+  onClick={() => setState({ clicked: true })}
+  text="Submit a form"
+/>
 
-```jsx
-<Button size="large" color="deeppink">
-  Lick Me
-</Button>
+<Button 
+  type="primary-inverted"
+  onClick={() => setState({ clicked: true })}
+  text="Open Modal"
+/>
 ```

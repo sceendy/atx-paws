@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 
 import './Button.css';
 
-const Button = ({ classNames, onClick, disabled, children }) => {
-	const styles = {
-		classNames,
-	};
-
+const Button = ({ type, classNames, onClick, disabled, text }) => {
 	return (
-		<button className={`btn ${classNames}`} onClick={onClick} disabled={disabled}>
-			{children}
+		<button
+			className={`btn btn--${type} ${classNames}`}
+			onClick={onClick} 
+			disabled={disabled}
+			type={`${type === 'primary' ? 'submit' : 'button'}`}
+		>
+			{text}
 		</button>
 	);
 }
 Button.propTypes = {
 	/** Button label */
-	children: PropTypes.node.isRequired,
+	text: PropTypes.node.isRequired,
 	/** The color for the button */
 	color: PropTypes.string,
 	/** Disable button */
@@ -26,8 +27,9 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-	color: '#333', // primary, secondary
-	size: 'normal',
+	classNames: '',
+	type: 'primary',
+	text: 'Hello',
 	onClick: event => {
 		console.log('You have clicked me!', event.target);
 	},

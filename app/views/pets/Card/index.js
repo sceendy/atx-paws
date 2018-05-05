@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 
+import BadgeList from '../../../components/BadgeList';
+
 class PetCard extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,7 @@ class PetCard extends Component {
     return (
       <div className="card" key={this.props.animal_id} data-test="pet-card">
         <div className="card__image">
-          <LazyLoad height={150} width={200}>
+          <LazyLoad height={150} once>
             <img
               src={`https://petharbor.com/get_image.asp?RES=Detail&ID=${this.props.animal_id}&LOCATION=ASTN`}
               alt={`Image for pet #${this.props.animal_id}`}
@@ -20,12 +22,7 @@ class PetCard extends Component {
         </div>
         <div className="card__content">
           <div className="card__title">{this.props.looks_like}</div>
-          <ul className="badge-list">
-            <li className="badge">{this.props.type}</li>
-            <li className="badge">{this.props.sex}</li>
-            <li className="badge">{this.props.age}</li>
-            <li className="badge">{this.props.color}</li>
-          </ul>
+          <BadgeList items={[this.props.type, this.props.sex, this.props.age, this.props.color]} />
         </div>
       </div>
     );

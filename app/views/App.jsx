@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 
-import '../components/Badge';
 import '../components/Layout';
 import '../components/Typography';
 
@@ -24,6 +23,8 @@ class App extends Component {
     this.props.history.listen((location, action) => {
       if (location.search === "") this.resetFilter();
     });
+
+    this.handleFilterForm = this.handleFilterForm.bind(this);
   }
 
   componentDidMount(){
@@ -54,10 +55,11 @@ class App extends Component {
   }
 
   handleFilterForm(filter) {
+    console.log(filter);
     this.props.dispatch(SetFilter(filter));
     this.props.dispatch(FilterPets(filter));
 
-    delete filter.filterSubmit;
+    delete filter.onChange;
     let stringifyIt = queryString.stringify(filter);
     this.props.history.push(({search: stringifyIt}));
   }
@@ -77,7 +79,8 @@ class App extends Component {
         <div className="container">
           <FilterForm 
             {...this.props.filter}
-            filterSubmit={filters => this.handleFilterForm(filters)}
+            onChange={filter => this.handleFilterForm(filter)}
+            resetForm={this.props.resetFilter}
           />
           <div className="main__layout">
             <PetList 
