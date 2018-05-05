@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 
-import '../components/Badge';
 import '../components/Layout';
 import '../components/Typography';
 
