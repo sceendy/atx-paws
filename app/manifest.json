@@ -1,0 +1,15 @@
+{
+  "short_name": "ATX Paw Finder",
+  "name": "ATX Paw Finder",
+  "icons": [
+    {
+      "src": "assets/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#9281FA",
+  "background_color": "#9281FA"
+}
