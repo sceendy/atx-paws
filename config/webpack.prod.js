@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = merge(common, {
   entry: {
@@ -39,5 +40,6 @@ module.exports = merge(common, {
       threshold: 10240,
       minRatio: 0.8
     }),
+    new ManifestPlugin()
   ]
 });
