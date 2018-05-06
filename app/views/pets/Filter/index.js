@@ -17,6 +17,7 @@ class FilterForm extends Component {
     
     return (
       <div className="form__container--inline">
+        <p>Find your lost pet by filtering through the pets recently found by the Austin Animal Center. The database is updated hourly.</p>
         <form className="form__group--inline">
           <ButtonGroup
             label="Pet Type"
