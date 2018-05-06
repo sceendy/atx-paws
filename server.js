@@ -5,7 +5,7 @@ const compression = require('compression');
 
 const PORT = process.env.PORT || 4000;
 
-app.use(compression);
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', (req, res) => {
