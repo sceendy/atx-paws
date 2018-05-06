@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../components/Nav';
 
-const logo = require('../assets/logo.png');
+const logo = require('../assets/logo.svg');
 
 const Header = () => {
   return (
