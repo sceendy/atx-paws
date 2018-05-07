@@ -3,12 +3,15 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
-}
-
-.form__group--inline {
   flex-basis: 100%;
   & > * {
     padding-right: 1rem;
+  }
+}
+
+.form__container--inline {
+  & > p {
+    margin-top: 0;
   }
 }
 

@@ -7,6 +7,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 module.exports = merge(common, {
+  devtool: 'source-map',
   entry: {
     vendor: [
       'react',
