@@ -12,8 +12,8 @@
   border-radius: 25px;
   background-color: var(--light-bg);
   color: #4836b8;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-right: 0.5rem;
   margin-top: 0.25rem;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.75rem;
 }
