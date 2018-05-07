@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack --config config/webpack.prod.js --mode production",
     "start:dev": "webpack-dev-server --config config/webpack.dev.js --mode development",
-    "start": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "test": "jest"

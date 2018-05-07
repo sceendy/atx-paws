@@ -59,7 +59,8 @@ module.exports = {
     new CleanWebpackPlugin('../dist', {allowExternal: true}),
     HtmlWebpackPluginConfig,
     new CopyWebpackPlugin([
-      { from: 'app/assets', to: 'assets' }
+      { from: 'app/assets', to: 'assets' },
+      { from: 'app/manifest.json', to: './' }
     ]),
     new webpack.ProgressPlugin()
   ]
