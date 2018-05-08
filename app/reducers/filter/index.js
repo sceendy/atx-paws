@@ -3,7 +3,7 @@ import { SetFilter } from '../../actions/pets';
 const initialFilter = {
   sex: 'all',
   petType: 'all',
-  atAAC: false
+  //atAAC: false
 };
 
 const filter = (state = initialFilter, action) => {
@@ -12,7 +12,7 @@ const filter = (state = initialFilter, action) => {
       return {
         sex: action.sex || initialFilter.sex,
         petType: action.petType || initialFilter.petType,
-        atAAC: action.atAAC || initialFilter.atAAC
+        //atAAC: action.atAAC || initialFilter.atAAC
       };
     default:
       return state;

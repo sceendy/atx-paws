@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
+import smoothscroll from 'smoothscroll-polyfill';
 
 import '../components/Layout';
 import '../components/Typography';
 
-const dogMarker = require('../assets/dog-marker.svg');
-const catMarker = require('../assets/cat-marker.svg');
 const API_URL = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.MAP_KEY || ''}`;
 
 import Header from './Header';
@@ -15,13 +14,15 @@ import PetList from './pets/List';
 import Map from './map';
 import FilterForm from './pets/Filter';
 
-import { FetchPets, FilterPets, SetFilter } from '../actions/pets';
+import { SelectPet, FetchPets, FilterPets, SetFilter } from '../actions/pets';
+
+smoothscroll.polyfill();
 
 class App extends Component {
   constructor(props){
     super(props);
     this.props.history.listen((location, action) => {
-      if (location.search === "") this.resetFilter();
+      if (location.search === '') this.resetFilter();
     });
 
     this.handleFilterForm = this.handleFilterForm.bind(this);
@@ -48,14 +49,13 @@ class App extends Component {
           id: pet.animal_id,
           latitude: Number(pet.location.latitude),
           longitude: Number(pet.location.longitude),
-          typeUrl: type === 'dog' ? dogMarker : catMarker
+          type: type
         });
       });
     }
   }
 
   handleFilterForm(filter) {
-    console.log(filter);
     this.props.dispatch(SetFilter(filter));
     this.props.dispatch(FilterPets(filter));
 
@@ -68,8 +68,14 @@ class App extends Component {
     this.handleFilterForm({
       sex: 'all',
       petType: 'all',
-      atAAC: false
+      //atAAC: false
     });
+  }
+
+  selectPet(id) {
+    this.props.dispatch(SelectPet(id));
+    document.querySelector('.card--selected').scrollIntoView({ behavior: 'smooth' });
+
   }
 
   render() {
@@ -83,9 +89,11 @@ class App extends Component {
             resetForm={this.props.resetFilter}
           />
           <div className="main__layout">
-            <PetList 
+            <PetList
+              selectedPet={this.props.selectedPet}
               filteredPets={this.props.filteredPets}
               filter={this.props.filter}
+              onPetSelected={id => this.selectPet(id)}
             />
             <div className="map__container u--xs-hide">
               <Map
@@ -95,6 +103,8 @@ class App extends Component {
                 containerElement={<div style={{ height: `100%` }} />}
                 mapElement={<div style={{ height: `100vh` }} />}
                 markerData={this.plotMarkers()}
+                selectedPet={this.props.selectedPet}
+                onMarkerSelected={id => this.selectPet(id)}
               />
             </div>
           </div>
@@ -107,7 +117,8 @@ class App extends Component {
 const mapState = state => ({
   pets: state.pets.initial,
   filteredPets: state.pets.filteredPets,
-  filter: state.filter
+  filter: state.filter,
+  selectedPet: state.pets.selectedPet
 });
 
 export default withRouter(connect(mapState)(App));

@@ -7,11 +7,22 @@ import BadgeList from '../../../components/BadgeList';
 class PetCard extends Component {
   constructor(props) {
     super(props);
+    this.showDetailsModal = this.showDetailsModal.bind(this);
+  }
+
+  showDetailsModal() {
+    // select and show modal
+    this.props.onPetSelected();
   }
 
   render() {
     return (
-      <div className="card" key={this.props.animal_id} data-test="pet-card">
+      <div
+        className={`card ${this.props.selectedPet === this.props.animal_id ? 'card--selected' : ''}`}
+        key={this.props.animal_id}
+        data-test="pet-card"
+        onClick={this.showDetailsModal}
+      >
         <div className="card__image">
           <LazyLoad height={150} offset={100}>
             <img
@@ -35,7 +46,8 @@ PetCard.propTypes = {
   type: PropTypes.string,
   sex: PropTypes.string,
   age: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
+  onPetSelected: PropTypes.func,
 }
 
 export default PetCard;

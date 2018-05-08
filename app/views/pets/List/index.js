@@ -31,7 +31,12 @@ class PetList extends Component {
         }
         <div className="card__list">
           { this.props.filteredPets.map(pet =>
-            <PetCard {...pet} key={pet.animal_id} />
+            <PetCard
+              {...pet} 
+              key={pet.animal_id} 
+              onPetSelected={() => this.props.onPetSelected(pet.animal_id)}
+              selectedPet={this.props.selectedPet}
+            />
           )}
         </div>
       </article>
@@ -42,6 +47,8 @@ class PetList extends Component {
 PetList.propTypes = {
   filteredPets: PropTypes.arrayOf(Object),
   filter: PropTypes.object,
+  onPetSelected: PropTypes.func,
+  selectedPet: PropTypes.string,
 };
 
 export default PetList;
