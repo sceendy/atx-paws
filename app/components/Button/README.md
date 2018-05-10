@@ -14,3 +14,21 @@ Buttons:
   text="Open Modal"
 />
 ```
+
+ButtonGroup:
+
+```jsx
+
+const petTypes = [
+  { name: 'dog', type: 'image', content: dog },
+  { name: 'cat', type: 'image', content: cat },
+  { name: 'all', type: 'text', content: 'both' }
+];
+
+<ButtonGroup
+  label="Pet Type"
+  onChange={() => {}}
+  selected={petTypes[1]}
+  options={petTypes}
+/>
+```

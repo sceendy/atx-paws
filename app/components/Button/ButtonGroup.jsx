@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Button.css';
 
-const ButtonGroup = ({ value, options, label, onChange, selected }) => {
+const ButtonGroup = ({ value, dataTest, options, label, onChange, selected }) => {
 	const buttons = options.map((btn, i) => {
 		return <button 
 			key={i}
@@ -24,6 +24,7 @@ const ButtonGroup = ({ value, options, label, onChange, selected }) => {
 	return (
 		<div
 			className="btn-group"
+			data-test={dataTest}
 			role="group" 
 			aria-label={label}
 		>
@@ -41,10 +42,15 @@ ButtonGroup.propTypes = {
 	onChange: PropTypes.func,
 	/** sets aria label value */
 	label: PropTypes.string,
+	dataTest: PropTypes.string,
 };
 
 ButtonGroup.defaultProps = {
 	onChange: () => {},
+	dataText: 'button-group',
+	label: 'Button Group',
+	options: [],
+	selected: ''
 };
 
 export default ButtonGroup;
