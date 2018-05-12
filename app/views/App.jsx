@@ -71,6 +71,8 @@ class App extends Component {
 
   selectPet(id) {
     this.props.dispatch(SelectPet(id));
+    const selectedCard = document.getElementById(id);
+    selectedCard.scrollIntoView({ behavior: 'smooth'});
   }
 
   render() {

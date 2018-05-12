@@ -13,13 +13,12 @@ class PetCard extends Component {
   showDetailsModal() {
     // select and show modal
     this.props.onPetSelected();
-    const selectedCard = document.getElementsByClassName('card--selected');
-    selectedCard[0].scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   render() {
     return (
       <div
+        id={this.props.animal_id}
         className={`card ${this.props.selectedPet === this.props.animal_id ? 'card--selected' : ''}`}
         key={this.props.animal_id}
         data-test="pet-card"
