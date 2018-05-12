@@ -1,6 +1,6 @@
 {
   "name": "atx-paws",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "index.js",
   "author": "Cindy Haden",
   "license": "MIT",
@@ -44,7 +44,6 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "smoothscroll-polyfill": "^0.4.3",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1",

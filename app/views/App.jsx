@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
-import smoothscroll from 'smoothscroll-polyfill';
 
 import '../components/Layout';
 import '../components/Typography';
@@ -15,8 +14,6 @@ import Map from './map';
 import FilterForm from './pets/Filter';
 
 import { SelectPet, FetchPets, FilterPets, SetFilter } from '../actions/pets';
-
-smoothscroll.polyfill();
 
 class App extends Component {
   constructor(props){
@@ -74,8 +71,6 @@ class App extends Component {
 
   selectPet(id) {
     this.props.dispatch(SelectPet(id));
-    document.querySelector('.card--selected').scrollIntoView({ behavior: 'smooth' });
-
   }
 
   render() {
