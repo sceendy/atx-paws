@@ -32,7 +32,8 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
-        'MAP_KEY': JSON.stringify(process.env.MAP_KEY)
+        'MAP_KEY': JSON.stringify(process.env.MAP_KEY),
+        'APP_TOKEN': JSON.stringify(process.env.APP_TOKEN)
       }
     }),
     new CompressionWebpackPlugin({
