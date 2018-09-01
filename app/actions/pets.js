@@ -35,7 +35,7 @@ export const FilterPets = (filterSelections) => ({
 export const FetchPets = () => {
   return dispatch => {
     return (
-      fetch(`${API_URL}$$app_token=GEItmySVwSiOQyvvgxlplPL45`)
+      fetch(`${API_URL}$$app_token=${process.env.APP_TOKEN}`)
       .then(response => response.json())
       .then(json => dispatch(receivePets(json)))
     );
